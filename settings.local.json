@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed *)",
+      "mcp__plugin_hpc-bridge_endpoint__connect_facility",
+      "mcp__plugin_hpc-bridge_endpoint__run_shell"
+    ]
+  }
+}

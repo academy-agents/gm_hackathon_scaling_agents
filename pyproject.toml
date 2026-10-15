@@ -1,0 +1,37 @@
+[project]
+name = "genesis-mission-hackathon"
+version = "0.1.0"
+description = "Material for Genesis Mission Hackathon Oct 2026"
+readme = "README.md"
+requires-python = "==3.13.*"
+dependencies = [
+    "academy-py",
+    "globus-compute-sdk",
+    "langgraph",
+    "langchain-openai",
+    "academy-dashboard==0.1.0",
+    "globus-compute-endpoint>=4.18.0",
+    "python-dotenv>=1.2.4",
+    "langchain>=1.4.4",
+    "rdkit>=2026.9.1",
+    "parsl>=2026.10.5",
+    "claude-agent-sdk>=0.2.165",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# Code that remote workers import (dill pickles agents by reference)
+only-include = ["intermediate/__init__.py", "intermediate/custom_agents"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.2",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Agents launched to remote sites must log with the root logger
+"intermediate/04_dashboard/*" = ["LOG015"]
