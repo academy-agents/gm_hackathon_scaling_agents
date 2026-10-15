@@ -17,18 +17,14 @@
 
 4. Configure access to a model. E.g., via the Model Access Gateway (MAG), local inference service, or commercial provider.
 
-For MAG, refer to [MAG get started](https://amsc-docs-d762d2.gitlab.io/mag-get-started). Then put the token in your shell:
+For MAG, refer to [MAG get started](https://amsc-docs-d762d2.gitlab.io/mag-get-started). 
 
-   ```bash
-   export AMSC_TOKEN=<your MAG key>
-   ```
-
-5. Update `aurora_env_setup` with your AMSC token
+5. Update `aurora_env_setup.sh` with your AMSC token
 6. Activate uv environment on the compute node
     ```bash
    $ source ~/.venv/bin/activate
+   $ source aurora_env_setup.sh
    ```
-8. Run the code in scaling_agents
 
 ### Scaling Agents
 
