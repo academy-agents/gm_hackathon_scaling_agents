@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 from typing import Any
 
 from academy.agent import action
@@ -22,7 +23,7 @@ from wordle import WordleGame
 
 logger = logging.getLogger(__name__)
 
-MODEL = 'claude-haiku-5-5'
+MODEL = os.environ.get('LLM_MODEL', 'claude-haiku-5-5')
 
 RULES = (
     'Wordle is a word-guessing game where the target is a hidden 5-letter '
