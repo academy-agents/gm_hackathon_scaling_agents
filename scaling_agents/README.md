@@ -21,4 +21,4 @@ Each script runs Wordle agents. The agents use the Claude Agent SDK, and Academy
 
 At the end, each script shows the answer from each agent and the true target word.
 
-All agents run in one process on your computer. Each agent is a `MonitoredAgent`: it sends its logs and status through the Academy cloud exchange (`HttpExchangeFactory`) to your `UserAgent` on the [dashboard](https://dashboard.academy-agents.org). Before you run a script, start your `UserAgent` and set `USER_AGENT_ID` in `settings.env`, as in intermediate [Module 4](../../intermediate/04_dashboard/README.md). To run agents on an HPC system, add a Globus Compute executor, as in intermediate Module 3.
+These scripts use `LocalExchangeFactory`, so all agents run in one process on your computer. To run agents on an HPC system, use `HttpExchangeFactory` and a Globus Compute executor, as in intermediate Module 3.
