@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import os
 from typing import Any
 
 from academy.agent import action
@@ -29,7 +30,7 @@ class WordleAgent(Agent):
     """
 
     def __init__(self) -> None:
-        self.model = 'claude-haiku-5-5'
+        self.model = os.environ.get('LLM_MODEL', 'claude-haiku-5-5')
 
     @action
     async def play_wordle(self, game: WordleGame) -> str:

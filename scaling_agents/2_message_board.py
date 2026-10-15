@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import os
 from typing import Any
 
 from academy.agent import action
@@ -41,7 +42,7 @@ class WordleAgent(Agent):
         self,
         peers: list[Handle[WordleAgent]],
     ) -> None:
-        self.model = 'claude-haiku-5-5'
+        self.model = os.environ.get('LLM_MODEL', 'claude-haiku-5-5')
         self.peers = peers
         self.insight_dict: dict[AgentId[Any], str] = {}
 
